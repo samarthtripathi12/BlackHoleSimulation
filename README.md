@@ -1,86 +1,131 @@
 Black Hole Light Bending Simulation
-Phase 1: Newtonian Light Bending
 
-Description:
+Abstract
+This project simulates the trajectory of light near a Schwarzschild black hole using Python. It demonstrates the progression from classical Newtonian physics to General Relativity, highlighting both numerical methods and physical insights. The simulations show how light bends under gravity, the limitations of naive numerical methods, and the importance of stable integration.
 
-Simulates light bending using Newtonian gravity.
+Phase 1 — Classical Baseline (Newtonian)
 
-Light path is nearly straight, curving slightly near the black hole.
+Scientific question:
+What happens to light if gravity is treated classically?
 
-Serves as a baseline for comparison with full General Relativity.
+Implementation:
 
-Methods:
+Newtonian deflection model of a single light ray
 
-Euler integration to compute trajectory (sufficient here due to weak bending).
+RK4 integrator for numerical stability
 
-Generated both a static plot and an animation showing the light path.
+Static plot and animated trajectory
 
-Outputs:
+Limitations:
 
-Static Plot: phase1_newtonian_deflection.png
+Does not include General Relativity
 
-Animation: phase1_newtonian_animation.gif
+No photon sphere or strong-field effects
 
-Key Observations:
+Code & Outputs:
 
-Closest approach: ~(-1, 1)
+src/phase1_newton_light.py
 
-Light bends slightly, confirming weak gravitational deflection.
+data/phase1_newton_single_ray.png (static plot)
 
-Sets up intuition for stronger effects in Phase 2 (Schwarzschild).
+data/phase1_newton_animation.gif (animation)
 
-Real-World Relevance:
+Insights:
 
-Illustrates weak gravitational lensing used in astrophysics.
+Establishes a baseline for light bending
 
-Helps understand how light interacts with mass before considering relativistic effects.
+Demonstrates that Newtonian gravity underestimates deflection
 
-Phase 2: Schwarzschild Light Bending (General Relativity)
+Phase 2 — Relativistic Single-Ray (Schwarzschild)
 
-Description:
+Scientific question:
+How does spacetime curvature affect light trajectories?
 
-Simulates light bending using the Schwarzschild metric (non-rotating black hole).
+Implementation:
 
-Light curves sharply as it approaches the black hole.
+Schwarzschild photon equations (non-rotating black hole)
 
-Includes Euler method (failure demonstration) and RK4 integration (accurate solution).
+Single light ray with RK4 integration
 
-Methods:
+Static plot and animation visualizing light bending near the black hole
 
-Euler Method: Demonstrates instability near strong gravity (trajectory diverges).
+Not yet implemented:
 
-RK4 Integration: Solves the null geodesic equation accurately, showing correct General Relativity bending.
+Euler comparison
 
-Verified the photon sphere at 1.5 Schwarzschild radii, an unstable circular orbit for light.
+Photon sphere scan
 
-Outputs:
+Code & Outputs:
 
-Euler (failed) Static Plot: phase2_schwarzschild_euler.png
+src/phase2_schwarzschild_single_ray.py
 
-Euler Animation: phase2_schwarzschild_euler.gif
+data/phase2_schwarzschild_single_ray.png
 
-RK4 (correct) Static Plot: phase2_schwarzschild_rk4.png
+data/phase2_schwarzschild_animation.gif
 
-RK4 Animation: phase2_schwarzschild_rk4.gif
+Insights:
 
-Key Observations:
+Correct implementation of General Relativity equations
 
-Closest approach: ~(-2, 1.8)
+Demonstrates stronger light bending than the Newtonian baseline
 
-Light bends dramatically due to strong curvature.
+Shows photon trajectory curving sharply near the black hole
 
-Euler fails near black hole → shows importance of stable numerical methods.
+Phase 3 — Numerical Failure & Fix (Euler vs RK4)
 
-RK4 successfully captures photon sphere behavior and correct GR trajectory.
+Scientific question:
+Do correct equations guarantee correct numerical results?
 
-Failures & Learning:
+Implementation:
 
-Euler method demonstrates numerical instability, a common challenge in computational physics.
+Euler integrator (unstable, naive method)
 
-RK4 solution shows the importance of robust numerical methods for high-curvature regimes.
+RK4 integrator (accurate and stable method)
 
-Real-World Relevance:
+Same initial conditions for side-by-side comparison
 
-Directly relates to gravitational lensing, used in astronomy to detect dark matter and distant galaxies.
+Visualizations include divergence points, photon sphere, and event horizon
 
-Helps visualize light paths near black holes, important for understanding LIGO detections and Event Horizon Telescope imaging.
+Code & Outputs:
+
+src/phase3_euler_vs_rk4.py
+
+data/phase3_euler_vs_rk4_static1.png (Euler divergence)
+
+data/phase3_euler_vs_rk4_static2.png (RK4 correct trajectory)
+
+data/phase3_euler_vs_rk4_side_by_side.png
+
+data/phase3_euler_vs_rk4.gif (animated RK4 trajectory)
+
+Insights:
+
+Euler method diverges near the black hole, highlighting numerical instability
+
+RK4 remains accurate, emphasizing importance of stable numerical integration
+
+Demonstrates how failure analysis informs correct computational physics
+
+Summary of Project Progression:
+
+Phase 1: Newtonian baseline — minimal bending, establishes expectations
+
+Phase 2: Schwarzschild GR — strong curvature, photon sphere observed
+
+Phase 3: Numerical methods comparison — shows why RK4 is necessary for correct physics
+
+Technologies Used:
+
+Python 3.x
+
+NumPy for numerical computation
+
+Matplotlib for plotting and animation
+
+Key Takeaways:
+
+Light follows null geodesics in curved spacetime
+
+Strong gravitational fields require both correct physics and stable numerical methods
+
+Animations help visualize relativistic effects dynamically
