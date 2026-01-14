@@ -39,7 +39,7 @@ The project showcases both **computational physics skills** and **theoretical un
 ![Phase 1: Newtonian](data/phase1_newtonian_deflection.png)  
 
 **Animation:**  
-![Phase 1 Animation](phase1_newtonian_animation.gif)
+![Phase 1 Animation] (data/phase1_newtonian_animation.gif)
 **Key Features:**  
 - Black dot = black hole  
 - Blue line = light ray  
