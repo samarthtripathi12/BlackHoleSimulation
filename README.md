@@ -59,7 +59,7 @@ The project showcases both **computational physics skills** and **theoretical un
 ![Phase 2: Schwarzschild](data/phase2_schwarzschild_deflection.png)  
 
 **Animation:**  
-![Phase 2 Animation](data/phase2_schwarzschild.gif)
+![Phase 2 Animation](data/phase2_schwarzschild_animation.gif)
 
 **Key Features:**  
 - Black dot = black hole  
@@ -81,7 +81,7 @@ The project showcases both **computational physics skills** and **theoretical un
 ![Phase 3: Kerr](data/phase3_kerr_deflection.png)  
 
 **Animation:**  
-![Phase 3 Animation](data/phase3_kerr.gif)
+![Phase 3 Animation](data/phase3_kerr_animation.gif)
 
 **Key Features:**  
 - Black dot = black hole  
