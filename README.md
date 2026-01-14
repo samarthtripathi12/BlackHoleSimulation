@@ -19,3 +19,16 @@ It demonstrates computational General Relativity concepts, including null geodes
 - NumPy
 - Matplotlib
 - (Optional) Numba for faster computation
+
+- # Black Hole Simulation — Phase 1
+
+## Phase 1: Newtonian Light Bending
+
+This is the first step in simulating light deflection near a black hole using a **simplified Newtonian model**.
+
+![Light Deflection](data/phase1_newtonian_deflection.png)
+
+- Black dot = black hole  
+- Blue line = light ray bending due to gravity  
+- Stops near photon sphere (r ≈ 1.5)  
+
