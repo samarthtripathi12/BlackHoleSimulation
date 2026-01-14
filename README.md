@@ -97,7 +97,7 @@ The project showcases both **computational physics skills** and **theoretical un
 
 To visualize the **progression from Newtonian → Schwarzschild → Kerr**, see the combined animation:  
 
-![All Phases Combined](data/combined_all_phases.gif)
+![All Phases Combined](data/combined_all_phases_animation.gif)
 
 ---
 
