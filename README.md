@@ -1,120 +1,86 @@
-# BlackHoleSimulation
-Simulates light near a Schwarzschild black hole using Python
-# Black Hole Simulation
+Black Hole Light Bending Simulation
+Phase 1: Newtonian Light Bending
 
-## Abstract
-This project simulates the trajectory of light near a Schwarzschild black hole using Python. 
-It demonstrates computational General Relativity concepts, including null geodesics and photon spheres.
+Description:
 
-## Development Iterations
-- v1.0 : Euler integration (unstable near event horizon)
-- v2.0 : RK4 integration (stable, verified against photon sphere)
+Simulates light bending using Newtonian gravity.
 
-## Verification
-- Photon sphere radius: 1.5 Rs
-- Trajectory matches theoretical predictions within <1% error
+Light path is nearly straight, curving slightly near the black hole.
 
-## Requirements
-- Python 3.11+
-- NumPy
-- Matplotlib
-- (Optional) Numba for faster computation
+Serves as a baseline for comparison with full General Relativity.
 
-  
-# Black Hole Light Bending Simulation
+Methods:
 
-This repository demonstrates the simulation of **light deflection near a black hole**, progressing from a simplified **Newtonian model** to **General Relativity (Schwarzschild)**, and finally to a **spinning Kerr black hole**.  
+Euler integration to compute trajectory (sufficient here due to weak bending).
 
-The project showcases both **computational physics skills** and **theoretical understanding**, suitable for research-level demonstration or MIT application portfolios.
+Generated both a static plot and an animation showing the light path.
 
----
+Outputs:
 
-## Phase 1: Newtonian Light Bending
+Static Plot: phase1_newtonian_deflection.png
 
-**Description:**  
-- Light bends slightly due to gravity (simplified Newtonian physics).  
-- Photon path is almost straight, bending only near the black hole.  
+Animation: phase1_newtonian_animation.gif
 
-**Static Plot:**  
-![Phase 1: Newtonian](data/phase1_newtonian_deflection.png)  
+Key Observations:
 
-**Animation:**  
-![Phase 1 Animation](data/phase1_newtonian_animation.gif)
-**Key Features:**  
-- Black dot = black hole  
-- Blue line = light ray  
-- Axes: `x = spatial coordinate`, `y = impact parameter`  
-- Closest approach: ~(-1,1)  
-- Shows weak gravitational bending  
+Closest approach: ~(-1, 1)
 
----
+Light bends slightly, confirming weak gravitational deflection.
 
-## Phase 2: Schwarzschild (GR) Light Bending
+Sets up intuition for stronger effects in Phase 2 (Schwarzschild).
 
-**Description:**  
-- Light curves **earlier and more sharply** compared to Newtonian.  
-- Trajectory calculated using **Schwarzschild metric** (non-rotating black hole).  
+Real-World Relevance:
 
-**Static Plot:**  
-![Phase 2: Schwarzschild](data/phase2_schwarzschild_deflection.png)  
+Illustrates weak gravitational lensing used in astrophysics.
 
-**Animation:**  
-![Phase 2 Animation](data/phase2_schwarzschild_animation.gif)
+Helps understand how light interacts with mass before considering relativistic effects.
 
-**Key Features:**  
-- Black dot = black hole  
-- Blue line = light ray  
-- Axes: `x = spatial coordinate`, `y = impact parameter`  
-- Closest approach: ~(-2,1.8)  
-- Demonstrates strong curvature effects from General Relativity  
+Phase 2: Schwarzschild Light Bending (General Relativity)
 
----
+Description:
 
-## Phase 3: Kerr (Spinning Black Hole) Light Bending
+Simulates light bending using the Schwarzschild metric (non-rotating black hole).
 
-**Description:**  
-- Light experiences **asymmetric bending** due to **frame-dragging**.  
-- Spin parameter: `a = 0.7` (dimensionless)  
-- Most advanced simulation, showing rotation effects on photon paths.  
+Light curves sharply as it approaches the black hole.
 
-**Static Plot:**  
-![Phase 3: Kerr](data/phase3_kerr_deflection.png)  
+Includes Euler method (failure demonstration) and RK4 integration (accurate solution).
 
-**Animation:**  
-![Phase 3 Animation](data/phase3_kerr_animation.gif)
+Methods:
 
-**Key Features:**  
-- Black dot = black hole  
-- Blue line = light ray  
-- Labels: `"Light Ray Kerr a=0.7"` and `"Black Hole"`  
-- Axes: `x = spatial coordinate`, `y = impact parameter`  
-- Closest approach: ~(-2, 1.8–2)  
-- Demonstrates frame-dragging and rotational effects  
+Euler Method: Demonstrates instability near strong gravity (trajectory diverges).
 
----
+RK4 Integration: Solves the null geodesic equation accurately, showing correct General Relativity bending.
 
-## Combined Comparison Animation
+Verified the photon sphere at 1.5 Schwarzschild radii, an unstable circular orbit for light.
 
-To visualize the **progression from Newtonian → Schwarzschild → Kerr**, see the combined animation:  
+Outputs:
 
-![All Phases Combined](data/combined_all_phases_animation.gif)
+Euler (failed) Static Plot: phase2_schwarzschild_euler.png
 
----
+Euler Animation: phase2_schwarzschild_euler.gif
 
-## Comparison Table
+RK4 (correct) Static Plot: phase2_schwarzschild_rk4.png
 
-| Feature | Phase 1: Newtonian | Phase 2: Schwarzschild | Phase 3: Kerr |
-|---------|------------------|----------------------|---------------|
-| Bending start | Far from BH | Closer to BH | Closer + asymmetric |
-| Curve shape | Smooth, slight | Sharper, symmetric | Asymmetric, skewed |
-| Closest approach | ~(-1,1) | ~(-2,1.8) | ~(-2,1.8–2) |
-| Physics insight | Weak gravity | Strong gravity | Strong gravity + rotation |
-| Labels | Black hole + light | Black hole + light | Black hole + light + Kerr a=0.7 |
+RK4 Animation: phase2_schwarzschild_rk4.gif
 
----
+Key Observations:
 
-## Notes & Extensions
+Closest approach: ~(-2, 1.8)
 
-- Multi-ray simulations with **different impact parameters** can further demonstrate gravitational lensing.  
-- Animations help show **dynamic behavior** in real time.  
-- Axes and labels ensure **self-explanatory physics visualization**.  
+Light bends dramatically due to strong curvature.
+
+Euler fails near black hole → shows importance of stable numerical methods.
+
+RK4 successfully captures photon sphere behavior and correct GR trajectory.
+
+Failures & Learning:
+
+Euler method demonstrates numerical instability, a common challenge in computational physics.
+
+RK4 solution shows the importance of robust numerical methods for high-curvature regimes.
+
+Real-World Relevance:
+
+Directly relates to gravitational lensing, used in astronomy to detect dark matter and distant galaxies.
+
+Helps visualize light paths near black holes, important for understanding LIGO detections and Event Horizon Telescope imaging.
