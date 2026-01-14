@@ -129,3 +129,46 @@ Light follows null geodesics in curved spacetime
 Strong gravitational fields require both correct physics and stable numerical methods
 
 Animations help visualize relativistic effects dynamically
+
+PHASE 4 — PHYSICAL VERIFICATION (PHOTON SPHERE @ 1.5 Rₛ)
+
+Scientific question:
+“Can I discover a General Relativity prediction numerically?”
+
+What you implement:
+
+Multiple light rays with varying impact parameters
+
+Detection of which rays are captured vs. which escape
+
+Identification of the critical radius where light forms unstable circular orbits
+
+What you demonstrate:
+
+Photon sphere exists at 1.5 Rₛ around a Schwarzschild black hole
+
+Captured rays (red) vs. escaped rays (blue) are clearly visible
+
+Animation shows real-time bending and capture near the black hole
+
+Fate distribution chart shows counts of captured vs. escaped rays
+
+End-state:
+Code:
+
+src/phase2_schwarzschild_photon_sphere.py
+
+
+Outputs:
+
+data/phase2_photon_sphere_scan.png
+data/phase2_photon_sphere_fate_distribution.png
+data/phase2_photon_sphere_animation.gif
+
+
+What this proves:
+
+You did not assume the photon sphere; it is numerically verified
+
+Strong-field behavior of light around a black hole is captured accurately
+
