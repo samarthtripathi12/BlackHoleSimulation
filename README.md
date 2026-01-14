@@ -21,60 +21,80 @@ It demonstrates computational General Relativity concepts, including null geodes
 - (Optional) Numba for faster computation
 
   
-# Black Hole Simulation
+# Black Hole Light Bending Simulation
 
-This repository demonstrates the bending of light near a black hole, progressing from a **simplified Newtonian model** to a **General Relativity (Schwarzschild) simulation**.
+This repository demonstrates the simulation of **light deflection near a black hole**, progressing from a simplified **Newtonian model** to **General Relativity (Schwarzschild)**, and finally to a **spinning Kerr black hole**.  
+
+The project is designed to showcase both **computational physics skills** and **theoretical understanding**, making it suitable for research-level demonstration.
 
 ---
 
 ## Phase 1: Newtonian Light Bending
 
-This first step uses a simplified Newtonian approximation to show how gravity affects light. The light ray bends gradually around the black hole.
+**Description:**  
+- Light bends slightly due to gravity (simplified Newtonian physics).  
+- Photon path is almost straight, bending near the black hole.  
 
-![Newtonian Light Deflection](data/phase1_newtonian_deflection.png)
+**Plot:**  
+![Light Deflection Phase 1](data/phase1_newtonian_deflection.png)  
 
-**Key points:**
-
+**Key Features:**  
 - Black dot = black hole  
 - Blue line = light ray  
-- Light travels farther before bending significantly  
-- Stops around `r ≈ 1.5` (approximate photon sphere)  
-- Curve is gradual and smooth  
+- Coordinates: `x = spatial coordinate`, `y = impact parameter`  
+- Closest approach ~ `(-1,1)`  
+- Shows weak gravitational bending  
 
 ---
 
-## Phase 2: Schwarzschild Light Bending (General Relativity)
+## Phase 2: Schwarzschild (GR) Light Bending
 
-Now, the simulation uses the Schwarzschild metric from General Relativity. Light bending is stronger and occurs closer to the black hole.
+**Description:**  
+- Light curves **earlier and more sharply** compared to Newtonian.  
+- Trajectory calculated using **Schwarzschild metric** (non-rotating black hole).  
 
-![GR Light Deflection](data/phase2_schwarzschild_deflection.png)
+**Plot:**  
+![Light Deflection Phase 2](data/phase2_schwarzschild_deflection.png)  
 
-**Key points:**
-
+**Key Features:**  
 - Black dot = black hole  
 - Blue line = light ray  
-- Light bends earlier and more sharply than Newtonian model  
-- Stops at Schwarzschild radius `r = 2M`  
-- Curve is more pronounced, demonstrating GR effects  
+- Coordinates: `x = spatial coordinate`, `y = impact parameter`  
+- Closest approach ~ `(-2,1.8)`  
+- Demonstrates strong curvature effects from General Relativity  
 
 ---
 
-## **Comparison Between Phase 1 and Phase 2**
+## Phase 3: Kerr (Spinning Black Hole) Light Bending
 
-| Feature | Phase 1 (Newtonian) | Phase 2 (GR/Schwarzschild) |
-|---------|-------------------|---------------------------|
-| Distance before bending | Farther | Closer to black hole |
-| Curve shape | Gradual | Sharp, stronger curvature |
-| Closest approach | ~(-1, 1) | ~(-2, 1.5-2) |
+**Description:**  
+- Light experiences **asymmetric bending** due to **frame-dragging**.  
+- Spin parameter: `a = 0.7` (dimensionless)  
+- Most advanced simulation, showing rotation effects on photon paths.  
 
-This shows a clear **progression from basic physics → advanced GR simulation**, demonstrating understanding of **light deflection and photon sphere effects**.
+**Plot:**  
+![Light Deflection Phase 3](data/phase3_kerr_deflection.png)  
+
+**Key Features:**  
+- Black dot = black hole  
+- Blue line = light ray  
+- Labels: `"Light Ray Kerr a=0.7"` and `"Black Hole"`  
+- Coordinates: `x = spatial coordinate`, `y = impact parameter`  
+- Closest approach ~ `(-2, 1.8~2)`  
+- Demonstrates frame-dragging and rotational effects  
 
 ---
 
-## **Next Steps / Phase 3 (Optional)**
+## Comparison Table
 
-- Simulate light bending around a **spinning black hole (Kerr metric)**  
-- Demonstrate **frame-dragging effects**  
+| Feature | Phase 1: Newtonian | Phase 2: Schwarzschild | Phase 3: Kerr |
+|---------|------------------|----------------------|---------------|
+| Bending start | Far from BH | Closer to BH | Closer + asymmetric |
+| Curve shape | Smooth, slight | Sharper, symmetric | Asymmetric, skewed |
+| Closest approach | ~(-1,1) | ~(-2,1.8) | ~(-2,1.8-2) |
+| Physics insight | Weak gravity | Strong gravity | Strong gravity + rotation |
+| Labels | Black hole + light | Black hole + light | Black hole + light +
+
 - Make multi-ray simulations with different impact parameters for comparison  
 
 ---
