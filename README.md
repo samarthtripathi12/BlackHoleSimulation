@@ -48,9 +48,9 @@ Code: src/(phase1_newton_light.py)
 
 Outputs:
 
-data/(phase1_newton_single_ray.png)
+![Phase 1: Newtonian](data/phase1_newtonian_deflection.png)  
 
-data/(phase1_newton_animation.gif)
+data/hase1_newtonian_animation.gi
 
 What this phase proves:
 
