@@ -172,3 +172,103 @@ You did not assume the photon sphere; it is numerically verified
 
 Strong-field behavior of light around a black hole is captured accurately
 
+
+Phase 5 — Strong-Field Rotation (Kerr Black Hole) (Optional Extension)
+Scientific Question
+
+What changes in light trajectories when spacetime itself rotates?
+
+This phase extends the Schwarzschild (non-rotating) black hole to a rotating Kerr black hole, allowing investigation of frame dragging and rotational asymmetry in photon motion.
+
+Physical Background
+
+In Kerr spacetime:
+
+The black hole has angular momentum.
+
+Spacetime is dragged around the rotating mass (Lense–Thirring effect).
+
+Photon paths depend on whether they move with (prograde) or against (retrograde) the rotation.
+
+Unlike Schwarzschild geometry, light trajectories are no longer symmetric.
+
+What Is Implemented
+
+Simplified Kerr photon equations (equatorial plane)
+
+Single-ray and multi-ray simulations
+
+RK4 numerical integrator
+
+Comparison between:
+
+Prograde vs retrograde motion
+
+Kerr vs Schwarzschild trajectories
+
+Visual Outputs
+
+Saved in data/:
+
+Kerr single-ray trajectory
+
+Shows light bending asymmetrically around a rotating black hole
+
+Event horizon and ergosphere are marked
+
+Prograde vs Retrograde comparison
+
+Prograde rays curve more strongly
+
+Retrograde rays resist bending due to opposite rotation
+
+Kerr vs Schwarzschild comparison
+
+Schwarzschild: symmetric bending
+
+Kerr: skewed, rotation-dependent bending
+
+Multiple photon trajectories
+
+Different impact parameters
+
+Clear separation of paths caused by frame dragging
+
+Animation
+
+Time evolution of photon motion
+
+Frame dragging visible as rotational distortion of trajectories
+
+End State
+
+Code
+
+src/phase5_kerr_light.py
+
+
+Outputs
+
+data/phase5_kerr_single_ray.png
+data/phase5_kerr_comparison.png
+data/phase5_kerr_multi_ray.png
+data/phase5_kerr_animation.gif
+
+What This Phase Demonstrates
+
+Extension from static to rotating spacetime
+
+Numerical handling of strong-field relativistic effects
+
+Physical understanding of:
+
+Frame dragging
+
+Ergosphere
+
+Rotation-induced asymmetry
+
+Willingness to explore beyond the minimal model
+
+This phase is not required for correctness of the project, but it shows depth, curiosity, and strong conceptual control of General Relativity in a computational setting.
+
