@@ -440,3 +440,14 @@ Integrators validated for stability and correctness
 Reviewer can trust that all plotted trajectories and animations are physically accurate
 
  
+Conclusion
+
+This project demonstrates the simulation of light trajectories near black holes, progressing from classical Newtonian physics to General Relativity, and finally to spinning (Kerr) black holes.
+
+Numerical methods were tested and refined, showing how naive methods can fail and RK4 provides stability and accuracy.
+
+Physical predictions, such as the photon sphere at 1.5 Rs, were verified numerically, not assumed.
+
+Optional Kerr simulations illustrate frame-dragging effects and strong-field phenomena.
+
+Overall, this work combines computational physics, theoretical insight, and careful validation, providing a clear, reproducible study of black hole light-bending phenomena.
