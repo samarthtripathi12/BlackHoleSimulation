@@ -159,3 +159,66 @@ Correct implementation of General Relativity equations
 Shows stronger bending of light than Newtonian gravity
 
 Provides a numerical and visual benchmark for further phases (Euler comparison, photon sphere analysis)
+
+Phase 3: Numerical Failure & Fix (Euler vs RK4)
+
+Scientific Question:
+
+“Do correct equations guarantee correct physics?”
+
+Tests whether a naive numerical method can reproduce expected physical trajectories near a black hole.
+
+What You Implement:
+
+Euler integrator (simpler, first-order method)
+
+RK4 integrator (accurate, fourth-order method)
+
+Same initial conditions for both methods
+
+Side-by-side comparison of trajectories
+
+What You Show / Demonstrate:
+
+Euler method fails near the black hole: light diverges incorrectly into the event horizon.
+
+RK4 method remains stable and accurate, reproducing expected General Relativity trajectories.
+
+Animations illustrate divergence vs correct behavior in real-time.
+
+Static Plot:
+![Phase 3: Euler vs Rk4](data/phase3_euler_vs_rk4.png) 
+
+Animation:
+![Phase 3: Euler vs Rk4](data/phase3_euler_vs_rk4.gif) 
+
+
+Key Features:
+
+Black dot = black hole
+
+Blue line = RK4 trajectory (correct)
+
+Red line / arrow = Euler trajectory (diverges incorrectly)
+
+Event horizon marked for reference
+
+Highlights importance of numerical method choice in computational physics
+
+End-state (Files):
+
+Code: src/phase2_schwarzschild_euler_vs_rk4.py
+
+Utilities: src/utils_integrators.py
+
+Outputs:
+
+data/phase2_euler_vs_rk4.png
+
+data/phase2_euler_vs_rk4.gif
+
+What This Proves:
+
+You understand numerical physics and stability issues.
+
+Shows ability to identify failures and correct them with better methods.
