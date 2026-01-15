@@ -119,10 +119,10 @@ RK4 integrator for stable numerical integration
 Generates static plot and animation
 
 Static Plot:
-![Phase 2: Swarschild](data/phase2_schwarschild_deflection.png)  
+![Phase 2: Swarschild](data/phase2_schwarzschild_deflection.png)  
 
 Animation:
-![Phase 2 Animation](data/phase2_schwarschild_animation.gif)
+![Phase 2 Animation](data/phase2_schwarzschild_animation.gif)
 
 Key Features:
 
