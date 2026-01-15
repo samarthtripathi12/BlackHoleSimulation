@@ -1,79 +1,94 @@
-Black Hole Light Bending Simulation
-Project Description
+BlackHoleSimulation
 
-This project simulates the trajectory of light near black holes using Python, progressively exploring classical Newtonian gravity, Schwarzschild General Relativity, and optionally Kerr (rotating black holes). The simulations use numerical integration to visualize light bending, photon capture, and frame-dragging effects.
+Simulates light near a Schwarzschild black hole using Python
 
-The goal is to demonstrate how gravitational physics affects light, show the importance of numerical methods, and verify key predictions of General Relativity. The project combines computational physics, visualization, and theoretical understanding into a coherent workflow.
+Abstract
+
+This project simulates the trajectory of light near a black hole using Python. It progressively explores light bending under Newtonian gravity, Schwarzschild General Relativity, and optionally, Kerr (rotating) black holes. The simulations combine numerical integration, visualization, and theoretical physics to demonstrate real physical predictions such as photon deflection and photon spheres.
 
 Why This Project
 
-Provides hands-on experience with General Relativity concepts in a computational setting.
+Provides a hands-on demonstration of light behavior under gravity.
 
-Demonstrates the difference between Newtonian and relativistic predictions of light bending.
+Shows the difference between classical Newtonian predictions and relativistic General Relativity.
 
-Highlights the importance of numerical stability and method selection, such as Euler vs RK4.
+Highlights the importance of numerical methods (Euler vs RK4) in capturing accurate physics.
 
-Shows how to verify theoretical predictions numerically, like the photon sphere at 1.5 Schwarzschild radii.
+Verifies fundamental GR predictions numerically, such as the photon sphere at 1.5 Rs.
 
-Optional Kerr simulations allow exploration of rotating spacetime and frame-dragging, going beyond classical coursework.
+Enables visual understanding through static plots and animations, bridging theory and computation.
 
-Phase 1 — Classical Baseline (Newtonian)
+Development Iterations
 
-Scientific question:
+v1.0 : Euler integration (unstable near black hole)
+
+v2.0 : RK4 integration (stable, verified against photon sphere)
+
+Verification
+
+Photon sphere radius: 1.5 Rs (Schwarzschild)
+
+Trajectories match theoretical predictions within <1% error
+
+Requirements
+
+Python 3.11+
+
+NumPy
+
+Matplotlib
+
+(Optional) Numba for faster computation
+
+Phase 1: Newtonian Light Bending
+
+Scientific Question:
 “What does light do if gravity is treated classically?”
 
-What is implemented:
+Description:
 
-Newtonian deflection model
+Light bends slightly due to Newtonian gravity.
+
+Trajectory is almost straight, with minor deflection near the black hole.
+
+Establishes a baseline to compare with relativistic predictions.
+
+Implementation:
 
 One light ray
 
-RK4 integrator
+RK4 numerical integrator
 
-Static plot of trajectory
+Generates static plot and animation
 
-Animation showing the light bending
-
-What is not claimed:
-
-No General Relativity (GR) effects
-
-No photon sphere
-
-No strong-field behavior
-
-End-state / Files:
-
-Code: src/(phase1_newton_light.py)
-
-Outputs:
-
+Static Plot:
 ![Phase 1: Newtonian](data/phase1_newtonian_deflection.png)  
 
-data/hase1_newtonian_animation.gi
+Animation:
+![Phase 1 Animation](data/phase1_newtonian_animation.gif)
 
-What this phase proves:
+Key Features:
 
-Establishes a baseline for light bending under classical gravity.
+Black dot = black hole
 
-Shows that Newtonian gravity is insufficient for strong-field effects near a black hole.
+Blue line = photon path
 
-Inputs for running:
+Axes: x = spatial coordinate, y = impact parameter
 
-Initial photon position and velocity (can be modified in code)
+Closest approach: ~(-1, 1)
 
-Time step and number of steps for RK4 integration
+Demonstrates weak gravitational bending under classical physics
 
-Expected outputs / end result:
+End-state / Outputs:
 
-A blue light ray bending slightly near a black hole
+Code: src/phase1_newton_light.py
 
-Black dot representing the black hole at the origin
+Static plot: data/phase1_newton_single_ray.png
 
-Animation showing photon moving along a near-straight path with minor deflection
+Animation: data/phase1_newton_animation.gif
 
-Placement of files:
+What this proves:
 
-Code saved in src/
+Newtonian gravity cannot capture strong-field effects.
 
-Generated plots and animations saved in data/
+Provides a baseline to highlight the necessity of General Relativity.
