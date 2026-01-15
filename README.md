@@ -252,11 +252,11 @@ Light rays near the photon sphere exhibit unstable circular orbits: some capture
 Animations illustrate photon dynamics near the black hole and photon sphere
 
 Static Plot:
-![Phase 3: Photon sphere verification](data/phase4_photon_sphere_scan.png) 
+![Phase 4: Photon sphere verification](data/phase4_photon_sphere_scan.png) 
 
 
 Animation:
-![Phase 3: Photon sphere verification](data/phase4_photon_sphere_animation.gif) 
+![Phase 4: Photon sphere verification](data/phase4_photon_sphere_animation.gif) 
 
 
 Key Features:
@@ -290,3 +290,153 @@ Photon sphere exists at r = 1.5 Rₛ, matching theoretical predictions
 Numerical simulations can verify GR predictions rather than assume them
 
 Bridges theory and computation with research-level insight
+
+Phase 5: Strong-Field / Rotation (Kerr) (Optional)
+
+Scientific Question:
+
+“What changes when spacetime rotates?”
+
+Tests how light trajectories are affected by a rotating (Kerr) black hole, including frame-dragging effects.
+
+What You Implement:
+
+Kerr (or simplified rotating) metric
+
+Single light ray
+
+RK4 integrator for stable trajectory computation
+
+Static plots and animations demonstrating frame-dragging and rotation effects
+
+What You Show / Demonstrate:
+
+Light ray paths differ from Schwarzschild (non-rotating) case: asymmetric bending
+
+Prograde vs retrograde photon trajectories relative to black hole spin
+
+Frame-dragging effect visible as rotation of light paths near the ergosphere
+
+Animation shows photon moving along curved path influenced by black hole spin
+
+Static Plot:
+![Phase 5: ](data//phase5_kerr_single_prograde.png) 
+
+
+Animation:
+![Phase 5: ](data/phase5_kerr_frame_dragging.gif) 
+
+
+Key Features:
+
+Red line = photon trajectory
+
+Blue line = reference spin direction or Kerr frame indicator
+
+Cross / markers = starting point of light ray
+
+Outer dotted line = ergosphere
+
+Inner filled circle = event horizon
+
+X and Y axes = spatial coordinates
+
+Highlights rotational effects on photon orbits (frame-dragging)
+
+End-state (Files):
+
+Code: src/phase5_kerr_light.py
+
+Outputs:
+
+data/phase5_kerr_single_ray.png
+
+data/phase5_kerr_animation.gif
+
+What This Proves:
+
+Light bending is altered by spacetime rotation
+
+Frame-dragging effects are visible and quantified
+
+Demonstrates ability to extend simulations beyond standard Schwarzschild solutions
+
+Shows ambition and willingness to explore advanced, strong-field GR phenomena
+
+Phase 6: Testing & Scientific Rigor
+
+Scientific Question:
+
+“Are my results reliable?”
+
+Ensures that the simulations are accurate and physically consistent. Validates the numerical integrators and key physical predictions.
+
+What You Implement:
+
+Unit tests for RK4 and Euler integrators
+
+Test photon sphere radius against theoretical 1.5 Rs
+
+Validate that light trajectories behave as expected (capture vs escape)
+
+End-state / Code:
+
+tests/test_integrators.py
+
+tests/test_photon_sphere.py
+
+What You Show / Demonstrate:
+
+Numerical integrators are correctly implemented and stable
+
+Photon sphere location matches GR prediction
+
+All core simulation features are consistent with theory
+
+Confirms the accuracy of Phase 1–5 results
+
+Outputs / Expected Results:
+
+Test outputs confirming integrator stability
+
+Photon sphere radius tests pass within expected tolerance
+
+Optional: summary table of test results printed to console
+
+Key Features:
+
+Automated verification of numerical physics
+
+Validates physical predictions without assumptions
+
+Provides confidence in all previous phases
+
+Clear, reproducible methodology
+
+Scientific / Reviewer Value:
+
+MIT or any reviewer sees:
+
+Clear progression from simple to complex simulations
+
+Identification of failures and corrections
+
+Numerical insight into why methods succeed or fail
+
+Physical verification of theoretical predictions
+
+Clean, structured code and outputs
+
+Honest scope: optional phases clearly marked as bonus
+
+End Result / What Should Be Seen:
+
+Running tests should complete without errors
+
+Photon sphere radius confirmed around 1.5 Rs
+
+Integrators validated for stability and correctness
+
+Reviewer can trust that all plotted trajectories and animations are physically accurate
+
+ 
