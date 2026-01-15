@@ -272,3 +272,102 @@ Willingness to explore beyond the minimal model
 
 This phase is not required for correctness of the project, but it shows depth, curiosity, and strong conceptual control of General Relativity in a computational setting.
 
+Phase 6 — Testing & Scientific Rigor
+Scientific Question
+
+“Are the numerical and physical results produced by this simulation reliable?”
+
+Computational physics is not only about producing visually convincing plots.
+It requires verification that numerical methods behave correctly and that physical predictions match known theory.
+
+This phase introduces automated tests to validate both.
+
+What is Tested
+1. Numerical Integrators
+
+File:
+tests/test_integrators.py
+
+Compares Euler and RK4 integration methods
+
+Uses a simple harmonic oscillator (a system with known behavior)
+
+Demonstrates:
+
+Euler integration accumulates numerical error and diverges
+
+RK4 remains stable for the same timestep
+
+This confirms that differences observed in earlier phases are numerical effects, not plotting artifacts.
+
+2. Physical Prediction: Photon Sphere
+
+File:
+tests/test_photon_sphere.py
+
+Computes the effective potential for null geodesics in Schwarzschild spacetime
+
+Locates the radius where the potential is maximized
+
+Verifies that the peak occurs at:
+
+𝑟
+=
+1.5
+ 
+𝑅
+𝑠
+r=1.5R
+s
+	​
+
+
+within numerical tolerance.
+
+This test independently confirms the photon sphere without hard-coding the theoretical value.
+
+What This Phase Demonstrates
+
+Numerical methods are validated, not assumed
+
+General Relativity predictions are verified numerically
+
+Results shown in Phases 2–4 are physically and computationally consistent
+
+The project follows practices used in real scientific codebases
+
+Outputs
+
+No plots or animations are produced in this phase
+
+Success is defined by:
+
+Correct test logic
+
+Physical consistency
+
+Reproducible validation
+
+Why This Matters
+
+By adding tests, this project goes beyond simulation and visualization.
+It demonstrates an understanding that:
+
+Correct physics requires both correct equations and correct numerics.
+
+This phase completes the project as a scientifically sound computational study, not just a visual demonstration.
+
+ Project Status
+
+Phase 1: Newtonian baseline — complete
+
+Phase 2: Schwarzschild light bending — complete
+
+Phase 3: Numerical failure & fix — complete
+
+Phase 4: Photon sphere verification — complete
+
+Phase 5: Kerr / rotation (optional) — complete
+
+Phase 6: Testing & rigor — complete
+
