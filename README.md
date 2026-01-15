@@ -222,3 +222,71 @@ What This Proves:
 You understand numerical physics and stability issues.
 
 Shows ability to identify failures and correct them with better methods.
+
+Phase 4: Photon Sphere Verification (Schwarzschild)
+
+Scientific Question:
+
+“Can I discover a General Relativity prediction numerically?”
+
+Tests whether multiple light rays near a Schwarzschild black hole reveal the photon sphere and unstable circular orbits.
+
+What You Implement:
+
+Multiple light rays approaching the black hole from different impact parameters
+
+Detect which rays are captured vs which rays escape
+
+Identify the critical radius where unstable circular orbits occur
+
+Generate both static plots and animations showing the trajectories
+
+What You Show / Demonstrate:
+
+Captured vs escaped photons near the black hole
+
+Photon sphere occurs at r = 1.5 Rₛ, consistent with GR prediction
+
+Light rays near the photon sphere exhibit unstable circular orbits: some captured, some escape
+
+Animations illustrate photon dynamics near the black hole and photon sphere
+
+Static Plot:
+![Phase 3: Photon sphere verification](data/phase4_photon_sphere_scan.png) 
+
+
+Animation:
+![Phase 3: Photon sphere verification](data/phase4_photon_sphere_animation.gif) 
+
+
+Key Features:
+
+Red rays = captured photons
+
+Blue rays = escaped photons
+
+Dark blue dot = black hole center
+
+Yellow dotted circle = photon sphere
+
+X and Y axes = spatial coordinates
+
+Highlights multi-ray interactions and critical radius effects in strong gravity
+
+End-state (Files):
+
+Code: src/phase4_schwarzschild_photon_sphere.py
+
+Outputs:
+
+data/phase4_photon_sphere_scan.png
+
+data/phase4_photon_sphere_animation.gif
+
+What This Proves:
+
+Photon sphere exists at r = 1.5 Rₛ, matching theoretical predictions
+
+Numerical simulations can verify GR predictions rather than assume them
+
+Bridges theory and computation with research-level insight
