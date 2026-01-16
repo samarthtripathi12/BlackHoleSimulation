@@ -104,7 +104,7 @@ The simulations combine numerical integration, visualization, and theoretical ph
 - Static plot + animation  
 
 **Static Plot:**  
-![Phase 2: Schwarzschild](data/phase2_schwarzschild_single_ray.png)  
+![Phase 2: Schwarzschild](data/phase2_schwarzschild_deflection.png)  
 
 **Animation:**  
 ![Phase 2 Animation](data/phase2_schwarzschild_animation.gif)  
@@ -273,5 +273,3 @@ This project demonstrates light trajectories near black holes, progressing from:
 
 The work combines **computational physics, theoretical insight, validation, and visualization** to deliver a fully verified, research-level simulation of black hole light bending.  
 
----
-✅ This is ready to copy-paste into your GitHub repo.
