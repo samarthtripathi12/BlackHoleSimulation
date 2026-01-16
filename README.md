@@ -1,453 +1,277 @@
-BlackHoleSimulation
+# Black Hole Light Bending Simulation
 
-Simulates light near a Schwarzschild black hole using Python
+Simulates light near a Schwarzschild black hole using Python, with optional Kerr (rotating) black holes.
 
-Abstract
+---
 
-This project simulates the trajectory of light near a black hole using Python. It progressively explores light bending under Newtonian gravity, Schwarzschild General Relativity, and optionally, Kerr (rotating) black holes. The simulations combine numerical integration, visualization, and theoretical physics to demonstrate real physical predictions such as photon deflection and photon spheres.
+## Abstract
 
-Why This Project
+This project simulates the trajectory of light near a black hole using Python. It progressively explores light bending under:
 
-Provides a hands-on demonstration of light behavior under gravity.
+1. **Newtonian gravity**  
+2. **Schwarzschild General Relativity**  
+3. **Optionally, Kerr (rotating) black holes**  
 
-Shows the difference between classical Newtonian predictions and relativistic General Relativity.
+The simulations combine numerical integration, visualization, and theoretical physics to demonstrate real physical predictions such as photon deflection, photon spheres, and frame-dragging.
 
-Highlights the importance of numerical methods (Euler vs RK4) in capturing accurate physics.
+---
 
-Verifies fundamental GR predictions numerically, such as the photon sphere at 1.5 Rs.
+## Why This Project
 
-Enables visual understanding through static plots and animations, bridging theory and computation.
+- Provides a hands-on demonstration of light behavior under gravity.  
+- Highlights the difference between classical Newtonian predictions and relativistic General Relativity.  
+- Demonstrates the importance of numerical methods (Euler vs RK4) in capturing accurate physics.  
+- Verifies fundamental GR predictions numerically, such as the photon sphere at 1.5 Rs.  
+- Combines static plots and animations to bridge theory and computation.
 
-Development Iterations
+---
 
-v1.0 : Euler integration (unstable near black hole)
+## Development Iterations
 
-v2.0 : RK4 integration (stable, verified against photon sphere)
+- **v1.0:** Euler integration (unstable near black hole)  
+- **v2.0:** RK4 integration (stable, verified against photon sphere)  
 
-Verification
+---
 
-Photon sphere radius: 1.5 Rs (Schwarzschild)
+## Verification
 
-Trajectories match theoretical predictions within <1% error
+- Photon sphere radius: 1.5 Rs (Schwarzschild)  
+- Trajectories match theoretical predictions within <1% error  
 
-Requirements
+---
 
-Python 3.11+
+## Requirements
 
-NumPy
+- Python 3.11+  
+- NumPy  
+- Matplotlib  
+- (Optional) Numba for faster computation  
 
-Matplotlib
+---
 
-(Optional) Numba for faster computation
+## Phase 1: Newtonian Light Bending
 
-Phase 1: Newtonian Light Bending
-
-Scientific Question:
+**Scientific Question:**  
 “What does light do if gravity is treated classically?”
 
-Description:
+**Description:**  
+- Light bends slightly due to Newtonian gravity.  
+- Trajectory is nearly straight, bending only near the black hole.  
+- Establishes a baseline for comparison with relativistic predictions.  
 
-Light bends slightly due to Newtonian gravity.
+**Implementation:**  
+- One light ray  
+- RK4 integrator  
+- Static plot + animation  
 
-Trajectory is almost straight, with minor deflection near the black hole.
-
-Establishes a baseline to compare with relativistic predictions.
-
-Implementation:
-
-One light ray
-
-RK4 numerical integrator
-
-Generates static plot and animation
-
-Static Plot:
+**Static Plot:**  
 ![Phase 1: Newtonian](data/phase1_newtonian_deflection.png)  
 
-Animation:
-![Phase 1 Animation](data/phase1_newtonian_animation.gif)
+**Animation:**  
+![Phase 1 Animation](data/phase1_newtonian_animation.gif)  
 
-Key Features:
+**Key Features:**  
+- Black dot = black hole  
+- Blue line = photon path  
+- X/Y axes = spatial coordinates / impact parameter  
+- Shows weak gravitational bending  
 
-Black dot = black hole
+**End-state / Outputs:**  
+- Code: `src/phase1_newton_light.py`  
+- Static plot: `data/phase1_newton_single_ray.png`  
+- Animation: `data/phase1_newton_animation.gif`  
 
-Blue line = photon path
+**What This Proves:**  
+- Newtonian gravity cannot capture strong-field effects.  
+- Provides a baseline to highlight the necessity of General Relativity.  
 
-Axes: x = spatial coordinate, y = impact parameter
+---
 
-Closest approach: ~(-1, 1)
+## Phase 2: Schwarzschild Relativistic Light Bending
 
-Demonstrates weak gravitational bending under classical physics
-
-End-state / Outputs:
-
-Code: src/phase1_newton_light.py
-
-Static plot: data/phase1_newton_single_ray.png
-
-Animation: data/phase1_newton_animation.gif
-
-What this proves:
-
-Newtonian gravity cannot capture strong-field effects.
-
-Provides a baseline to highlight the necessity of General Relativity.
-
-Phase 2: Schwarzschild Relativistic Light Bending
-
-Scientific Question:
+**Scientific Question:**  
 “How does spacetime curvature influence light trajectories near a non-rotating black hole?”
 
-Description:
+**Description:**  
+- Simulates light bending under Schwarzschild General Relativity.  
+- Photon curves more sharply than Newtonian baseline.  
+- Demonstrates strong-field effects near the photon sphere.  
 
-Simulates light bending under General Relativity using the Schwarzschild metric.
+**Implementation:**  
+- One light ray  
+- Schwarzschild geodesic equations  
+- RK4 integrator for stable numerical integration  
+- Static plot + animation  
 
-The light ray curves more sharply compared to the Newtonian baseline (Phase 1).
+**Static Plot:**  
+![Phase 2: Schwarzschild](data/phase2_schwarzschild_single_ray.png)  
 
-Demonstrates the strong-field effects of gravity, such as proximity to the photon sphere.
+**Animation:**  
+![Phase 2 Animation](data/phase2_schwarzschild_animation.gif)  
 
-Establishes a correct GR prediction for a single photon path near a black hole.
+**Key Features:**  
+- Blue line = photon trajectory  
+- Shows strong curvature compared to Newtonian case  
+- Closest approach ~(-2, 1.8)  
 
-Implementation:
+**End-state / Outputs:**  
+- Code: `src/phase2_schwarzschild_single_ray.py`  
+- Static plot: `data/phase2_schwarzschild_single_ray.png`  
+- Animation: `data/phase2_schwarzschild_animation.gif`  
 
-One light ray
+**What This Proves:**  
+- Correct implementation of GR equations  
+- Stronger bending of light than Newtonian gravity  
+- Provides a numerical and visual benchmark for further phases  
 
-Schwarzschild photon geodesic equations
+---
+
+## Phase 3: Numerical Failure & Fix (Euler vs RK4)
 
-RK4 integrator for stable numerical integration
+**Scientific Question:**  
+“Do correct equations guarantee correct physics?”  
+
+**Implementation:**  
+- Euler integrator (first-order, simpler)  
+- RK4 integrator (fourth-order, accurate)  
+- Same initial conditions  
+- Side-by-side trajectory comparison  
 
-Generates static plot and animation
+**What This Shows:**  
+- Euler method fails near black hole (diverges into horizon)  
+- RK4 remains stable and accurate  
+- Animations illustrate divergence vs correct physics  
 
-Static Plot:
-![Phase 2: Swarschild](data/phase2_schwarzschild_deflection.png)  
+**Static Plot:**  
+![Phase 3: Euler vs RK4](data/phase3_euler_vs_rk4.png)  
 
-Animation:
-![Phase 2 Animation](data/phase2_schwarzschild_animation.gif)
+**Animation:**  
+![Phase 3: Euler vs RK4](data/phase3_euler_vs_rk4.gif)  
 
-Key Features:
+**Key Features:**  
+- Blue line = RK4 (correct)  
+- Red line/arrow = Euler (diverges)  
+- Event horizon marked  
 
-Black dot = black hole
+**End-state / Outputs:**  
+- Code: `src/phase2_schwarzschild_euler_vs_rk4.py`  
+- Utilities: `src/utils_integrators.py`  
+- Outputs: `data/phase2_euler_vs_rk4.png`, `data/phase2_euler_vs_rk4.gif`  
 
-Blue line = photon trajectory
+**What This Proves:**  
+- Understanding of numerical physics and stability  
+- Ability to identify failures and correct them with better methods  
 
-Axes: x = spatial coordinate, y = impact parameter
+---
 
-Closest approach: ~(-2, 1.8)
+## Phase 4: Photon Sphere Verification (Schwarzschild)
 
-Demonstrates stronger curvature and relativistic bending compared to Phase 1
+**Scientific Question:**  
+“Can I discover a General Relativity prediction numerically?”  
 
-Photon trajectory shows behavior predicted by Schwarzschild metric
+**Implementation:**  
+- Multiple light rays with varying impact parameters  
+- Detect captured vs escaped rays  
+- Identify critical radius (photon sphere)  
+- Generate static plots + animations  
 
-What This Phase Does NOT Do Yet:
+**Static Plot:**  
+![Phase 4: Photon Sphere](data/phase4_photon_sphere_scan.png)  
 
-No Euler comparison (numerical failure demonstration)
+**Animation:**  
+![Phase 4: Photon Sphere](data/phase4_photon_sphere_animation.gif)  
 
-No photon sphere scan (exploring multiple impact parameters)
+**Key Features:**  
+- Red = captured rays, Blue = escaped rays  
+- Dark blue = black hole center  
+- Yellow dotted = photon sphere (r = 1.5 Rs)  
+- Demonstrates unstable circular orbits near photon sphere  
 
-End-state / Outputs:
+**End-state / Outputs:**  
+- Code: `src/phase4_schwarzschild_photon_sphere.py`  
+- Outputs: `data/phase4_photon_sphere_scan.png`, `data/phase4_photon_sphere_animation.gif`  
 
-Code: src/phase2_schwarzschild_single_ray.py
+**What This Proves:**  
+- Photon sphere exists at r = 1.5 Rs  
+- Numerical simulations can discover GR predictions  
+- Bridges theory and computation  
 
-Static plot: data/phase2_schwarzschild_single_ray.png
+---
 
-Animation: data/phase2_schwarzschild_animation.gif
+## Phase 5: Strong-Field / Rotation (Kerr) (Optional)
 
-What This Proves:
+**Scientific Question:**  
+“What changes when spacetime rotates?”  
 
-Correct implementation of General Relativity equations
+**Implementation:**  
+- Kerr (rotating) metric  
+- Single light ray  
+- RK4 integrator  
+- Static plots + animations  
 
-Shows stronger bending of light than Newtonian gravity
+**Static Plot:**  
+![Phase 5: Kerr](data/phase5_kerr_single_prograde.png)  
 
-Provides a numerical and visual benchmark for further phases (Euler comparison, photon sphere analysis)
+**Animation:**  
+![Phase 5 Animation](data/phase5_kerr_frame_dragging.gif)  
 
-Phase 3: Numerical Failure & Fix (Euler vs RK4)
+**Key Features:**  
+- Red = photon trajectory  
+- Blue = reference spin / frame indicator  
+- Cross = starting point  
+- Outer dotted = ergosphere, Inner filled = event horizon  
+- Frame-dragging visible  
 
-Scientific Question:
+**End-state / Outputs:**  
+- Code: `src/phase5_kerr_light.py`  
+- Outputs: `data/phase5_kerr_single_ray.png`, `data/phase5_kerr_animation.gif`  
 
-“Do correct equations guarantee correct physics?”
+**What This Proves:**  
+- Light bending is altered by spacetime rotation  
+- Frame-dragging effects are visible and quantified  
+- Demonstrates ability to extend simulations beyond Schwarzschild solutions  
 
-Tests whether a naive numerical method can reproduce expected physical trajectories near a black hole.
+---
 
-What You Implement:
+## Phase 6: Testing & Scientific Rigor
 
-Euler integrator (simpler, first-order method)
+**Scientific Question:**  
+“Are my results reliable?”  
 
-RK4 integrator (accurate, fourth-order method)
+**Implementation:**  
+- Unit tests for RK4 and Euler integrators  
+- Photon sphere radius test (1.5 Rs)  
+- Capture vs escape validation  
 
-Same initial conditions for both methods
+**End-state / Outputs:**  
+- `tests/test_integrators.py`  
+- `tests/test_photon_sphere.py`  
 
-Side-by-side comparison of trajectories
+**What This Proves:**  
+- Integrators are stable and correct  
+- Photon sphere location matches theory  
+- Confirms all previous simulation results  
 
-What You Show / Demonstrate:
+**Expected Results:**  
+- Tests complete without errors  
+- Photon sphere radius validated  
+- Numerical stability confirmed  
 
-Euler method fails near the black hole: light diverges incorrectly into the event horizon.
+---
 
-RK4 method remains stable and accurate, reproducing expected General Relativity trajectories.
+## Conclusion
 
-Animations illustrate divergence vs correct behavior in real-time.
+This project demonstrates light trajectories near black holes, progressing from:
 
-Static Plot:
-![Phase 3: Euler vs Rk4](data/phase3_euler_vs_rk4.png) 
+1. Newtonian approximation  
+2. Schwarzschild General Relativity  
+3. Optional Kerr (rotating) black hole  
 
-Animation:
-![Phase 3: Euler vs Rk4](data/phase3_euler_vs_rk4.gif) 
+- Numerical methods were tested and refined, showing Euler failure and RK4 stability.  
+- Physical predictions, such as the photon sphere at 1.5 Rs, were verified numerically.  
+- Optional Kerr simulations demonstrate frame-dragging effects and strong-field phenomena.  
 
+The work combines **computational physics, theoretical insight, validation, and visualization** to deliver a fully verified, research-level simulation of black hole light bending.  
 
-Key Features:
-
-Black dot = black hole
-
-Blue line = RK4 trajectory (correct)
-
-Red line / arrow = Euler trajectory (diverges incorrectly)
-
-Event horizon marked for reference
-
-Highlights importance of numerical method choice in computational physics
-
-End-state (Files):
-
-Code: src/phase2_schwarzschild_euler_vs_rk4.py
-
-Utilities: src/utils_integrators.py
-
-Outputs:
-
-data/phase2_euler_vs_rk4.png
-
-data/phase2_euler_vs_rk4.gif
-
-What This Proves:
-
-You understand numerical physics and stability issues.
-
-Shows ability to identify failures and correct them with better methods.
-
-Phase 4: Photon Sphere Verification (Schwarzschild)
-
-Scientific Question:
-
-“Can I discover a General Relativity prediction numerically?”
-
-Tests whether multiple light rays near a Schwarzschild black hole reveal the photon sphere and unstable circular orbits.
-
-What You Implement:
-
-Multiple light rays approaching the black hole from different impact parameters
-
-Detect which rays are captured vs which rays escape
-
-Identify the critical radius where unstable circular orbits occur
-
-Generate both static plots and animations showing the trajectories
-
-What You Show / Demonstrate:
-
-Captured vs escaped photons near the black hole
-
-Photon sphere occurs at r = 1.5 Rₛ, consistent with GR prediction
-
-Light rays near the photon sphere exhibit unstable circular orbits: some captured, some escape
-
-Animations illustrate photon dynamics near the black hole and photon sphere
-
-Static Plot:
-![Phase 4: Photon sphere verification](data/phase4_photon_sphere_scan.png) 
-
-
-Animation:
-![Phase 4: Photon sphere verification](data/phase4_photon_sphere_animation.gif) 
-
-
-Key Features:
-
-Red rays = captured photons
-
-Blue rays = escaped photons
-
-Dark blue dot = black hole center
-
-Yellow dotted circle = photon sphere
-
-X and Y axes = spatial coordinates
-
-Highlights multi-ray interactions and critical radius effects in strong gravity
-
-End-state (Files):
-
-Code: src/phase4_schwarzschild_photon_sphere.py
-
-Outputs:
-
-data/phase4_photon_sphere_scan.png
-
-data/phase4_photon_sphere_animation.gif
-
-What This Proves:
-
-Photon sphere exists at r = 1.5 Rₛ, matching theoretical predictions
-
-Numerical simulations can verify GR predictions rather than assume them
-
-Bridges theory and computation with research-level insight
-
-Phase 5: Strong-Field / Rotation (Kerr) (Optional)
-
-Scientific Question:
-
-“What changes when spacetime rotates?”
-
-Tests how light trajectories are affected by a rotating (Kerr) black hole, including frame-dragging effects.
-
-What You Implement:
-
-Kerr (or simplified rotating) metric
-
-Single light ray
-
-RK4 integrator for stable trajectory computation
-
-Static plots and animations demonstrating frame-dragging and rotation effects
-
-What You Show / Demonstrate:
-
-Light ray paths differ from Schwarzschild (non-rotating) case: asymmetric bending
-
-Prograde vs retrograde photon trajectories relative to black hole spin
-
-Frame-dragging effect visible as rotation of light paths near the ergosphere
-
-Animation shows photon moving along curved path influenced by black hole spin
-
-Static Plot:
-![Phase 5: ](data//phase5_kerr_single_prograde.png) 
-
-
-Animation:
-![Phase 5: ](data/phase5_kerr_frame_dragging.gif) 
-
-
-Key Features:
-
-Red line = photon trajectory
-
-Blue line = reference spin direction or Kerr frame indicator
-
-Cross / markers = starting point of light ray
-
-Outer dotted line = ergosphere
-
-Inner filled circle = event horizon
-
-X and Y axes = spatial coordinates
-
-Highlights rotational effects on photon orbits (frame-dragging)
-
-End-state (Files):
-
-Code: src/phase5_kerr_light.py
-
-Outputs:
-
-data/phase5_kerr_single_ray.png
-
-data/phase5_kerr_animation.gif
-
-What This Proves:
-
-Light bending is altered by spacetime rotation
-
-Frame-dragging effects are visible and quantified
-
-Demonstrates ability to extend simulations beyond standard Schwarzschild solutions
-
-Shows ambition and willingness to explore advanced, strong-field GR phenomena
-
-Phase 6: Testing & Scientific Rigor
-
-Scientific Question:
-
-“Are my results reliable?”
-
-Ensures that the simulations are accurate and physically consistent. Validates the numerical integrators and key physical predictions.
-
-What You Implement:
-
-Unit tests for RK4 and Euler integrators
-
-Test photon sphere radius against theoretical 1.5 Rs
-
-Validate that light trajectories behave as expected (capture vs escape)
-
-End-state / Code:
-
-tests/test_integrators.py
-
-tests/test_photon_sphere.py
-
-What You Show / Demonstrate:
-
-Numerical integrators are correctly implemented and stable
-
-Photon sphere location matches GR prediction
-
-All core simulation features are consistent with theory
-
-Confirms the accuracy of Phase 1–5 results
-
-Outputs / Expected Results:
-
-Test outputs confirming integrator stability
-
-Photon sphere radius tests pass within expected tolerance
-
-Optional: summary table of test results printed to console
-
-Key Features:
-
-Automated verification of numerical physics
-
-Validates physical predictions without assumptions
-
-Provides confidence in all previous phases
-
-Clear, reproducible methodology
-
-Scientific / Reviewer Value:
-
-MIT or any reviewer sees:
-
-Clear progression from simple to complex simulations
-
-Identification of failures and corrections
-
-Numerical insight into why methods succeed or fail
-
-Physical verification of theoretical predictions
-
-Clean, structured code and outputs
-
-Honest scope: optional phases clearly marked as bonus
-
-End Result / What Should Be Seen:
-
-Running tests should complete without errors
-
-Photon sphere radius confirmed around 1.5 Rs
-
-Integrators validated for stability and correctness
-
-Reviewer can trust that all plotted trajectories and animations are physically accurate
-
- 
-Conclusion
-
-This project demonstrates the simulation of light trajectories near black holes, progressing from classical Newtonian physics to General Relativity, and finally to spinning (Kerr) black holes.
-
-Numerical methods were tested and refined, showing how naive methods can fail and RK4 provides stability and accuracy.
-
-Physical predictions, such as the photon sphere at 1.5 Rs, were verified numerically, not assumed.
-
-Optional Kerr simulations illustrate frame-dragging effects and strong-field phenomena.
-
-Overall, this work combines computational physics, theoretical insight, and careful validation, providing a clear, reproducible study of black hole light-bending phenomena.
+---
+✅ This is ready to copy-paste into your GitHub repo.
