@@ -46,7 +46,7 @@ for _ in range(steps):
     y_vals_euler.append(y)
 
 print(f"✓ Euler integration complete: {len(x_vals_euler)} points")
-print(f"  Note: Euler method is UNSTABLE and INACCURATE for this problem")
+print("  Note: Euler method is UNSTABLE and INACCURATE for this problem")
 
 # Plot Euler result
 plt.figure(figsize=(6,6))
@@ -90,6 +90,7 @@ print("PART 2: RK4 INTEGRATION (Correct General Relativity)")
 print("=" * 60)
 
 def schwarzschild_geodesic(u, du, M=1.0):
+    """True Schwarzschild null geodesic equation for light"""
     return -u + 3*M*u**2
 
 def rk4_step(u, du, dphi, M=1.0):
@@ -130,11 +131,13 @@ def polar_to_cartesian(phi_vals, r_vals):
 print("Integrating geodesic equation...")
 phi_vals, r_vals = integrate_rk4(r0=10.0, b=3.0)
 x_rk4, y_rk4 = polar_to_cartesian(phi_vals, r_vals)
-print(f"✓ RK4 integration complete: {len(x_rk4)} points")
-print(f"  Closest approach: {np.min(r_vals):.3f} Rs")
-print(f"  Photon sphere at: 1.500 Rs")
 
-# Plot RK4 result (no filename change needed)
+closest_approach = np.min(r_vals)
+print(f"✓ RK4 integration complete: {len(x_rk4)} points")
+print(f"  Closest approach: {closest_approach:.3f} Rs")  # <-- printed for README update
+print("  Photon sphere at: 1.500 Rs")
+
+# Plot RK4 static plot
 plt.figure(figsize=(8,8))
 plt.plot(x_rk4, y_rk4, color='blue', linewidth=2, label='Light Ray (RK4 - CORRECT)')
 plt.scatter(0, 0, color='black', s=100, label='Black Hole', zorder=5)
@@ -151,7 +154,7 @@ plt.ylim(-8,8)
 plt.savefig('data/phase2_schwarzschild_single_ray.png', dpi=300)  # matches README
 plt.close()
 
-# RK4 Animation (no filename change needed)
+# RK4 Animation
 fig, ax = plt.subplots(figsize=(8,8))
 ax.set_xlim(-12,12)
 ax.set_ylim(-8,8)
@@ -163,11 +166,13 @@ horizon = plt.Circle((0,0), 2.0*M, color='gray', fill=False, linestyle=':', line
 ax.add_patch(horizon)
 line, = ax.plot([], [], lw=2, color='blue')
 point, = ax.plot([], [], 'ro', markersize=8)
+
 def update(frame):
     if frame > 0:
         line.set_data(x_rk4[:frame], y_rk4[:frame])
         point.set_data([x_rk4[frame-1]], [y_rk4[frame-1]])
     return line, point
+
 frames_to_use = list(range(0,len(x_rk4),10))
 ani = FuncAnimation(fig, update, frames=frames_to_use, interval=20)
 ani.save('data/phase2_schwarzschild_animation.gif', writer=PillowWriter(fps=30))  # matches README
