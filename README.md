@@ -68,7 +68,7 @@ The simulations combine numerical integration, visualization, and theoretical ph
 ![Phase 1: Newtonian](data/phase1_newton_single_ray.png)  
 
 **Animation:**  
-![Phase 1 Animation](data/phase1_newtonian_animation.gif)  
+![Phase 1 Animation](data/phase1_newton_animation.gif)  
 
 **Key Features:**  
 - Black dot = black hole  
