@@ -35,8 +35,8 @@ The simulations combine numerical integration, visualization, and theoretical ph
 
 ## Verification
 
-- Photon sphere radius: 1.5 Rs (Schwarzschild)  
-- Trajectories match theoretical predictions within <1% error  
+- Later phases verify General Relativity predictions such as the photon sphere at r = 1.5 Rs.
+- Later phases compare numerical results to analytical Schwarzschild predictions.
 
 ---
 
@@ -65,7 +65,7 @@ The simulations combine numerical integration, visualization, and theoretical ph
 - Static plot + animation  
 
 **Static Plot:**  
-![Phase 1: Newtonian](data/phase1_newtonian_deflection.png)  
+![Phase 1: Newtonian](data/phase1_newton_single_ray.png)  
 
 **Animation:**  
 ![Phase 1 Animation](data/phase1_newtonian_animation.gif)  
