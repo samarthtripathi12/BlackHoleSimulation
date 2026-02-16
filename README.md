@@ -115,7 +115,7 @@ The simulations combine numerical integration, visualization, and theoretical ph
 - Closest approach ~(-2, 1.8)  
 
 **End-state / Outputs:**  
-- Code: `src/phase2_schwarzschild_single_ray.py`  
+- Code: `src/phase2_schwarzschild.py`  
 - Static plot: `data/phase2_schwarzschild_single_ray.png`  
 - Animation: `data/phase2_schwarzschild_animation.gif`  
 
