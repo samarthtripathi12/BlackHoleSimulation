@@ -62,7 +62,7 @@ def make_static_plot(x, y):
     plt.axis("equal")
     plt.grid(True)
 
-    plt.savefig("data/phase1_newton_static.png", dpi=300)
+    plt.savefig("data/phase1_newton_single_ray.png", dpi=300)
     plt.close()
 
 
